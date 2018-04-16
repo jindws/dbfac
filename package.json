@@ -1,13 +1,11 @@
 {
   "name": "dbfac",
-  "version": "1.0.4",
-  "description": "",
+  "version": "1.0.6",
+  "description": "dbfactory",
   "main": "index.js",
-  "scripts": {
-    "test": "parcel test/index.html"
+  "directories": {
+    "test": "test"
   },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "object-param": "^1.0.2",
     "whatwg-fetch": "^2.0.4"
@@ -16,5 +14,18 @@
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.4",
     "babel-preset-stage-0": "^6.24.1"
-  }
+},
+  "scripts": {
+    "test": "parcel test/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moiamoia/dbfac.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/moiamoia/dbfac/issues"
+  },
+  "homepage": "https://github.com/moiamoia/dbfac#readme"
 }

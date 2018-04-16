@@ -26,7 +26,7 @@ function Request(config,body,db) {
       Object.assign(option, {
           headers: {
               "Accept": "application/json",
-              "Content-Type": "application/x-www-form-urlencoded"
+              "Content-Type": "application/json"
           },
           method: 'post',
           body: os(body)
@@ -37,7 +37,6 @@ function Request(config,body,db) {
 
     return new Promise((resolve, reject) => {
         fetch(url, option).then(data => data.json()).then(resp => {
-            // console.log(arguments)
             if(deal){
                 deal(resp).then(resolve,reject)
                 return
