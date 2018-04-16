@@ -1,0 +1,20 @@
+{
+  "name": "dbfac",
+  "version": "1.0.4",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "parcel test/index.html"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "object-param": "^1.0.2",
+    "whatwg-fetch": "^2.0.4"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-stage-0": "^6.24.1"
+  }
+}
