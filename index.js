@@ -16,12 +16,12 @@ export default new class {
 }
 
 function Request(config,body,db) {
-    const {deal} = db
-    console.log(db)
-    let {url,method = ''} = config;
+    const {defaultdeal} = db
+    let {url,method = '',deal} = config;
     const option = {
       credentials: 'same-origin',
     };
+
     if(method.toUpperCase() === 'POST'){
       Object.assign(option, {
           headers: {
@@ -29,7 +29,7 @@ function Request(config,body,db) {
               "Content-Type": "application/json"
           },
           method: 'post',
-          body: os(body)
+          body: JSON.stringify(body)
       })
     }else{
       url += `?${os(body)}`
@@ -37,8 +37,14 @@ function Request(config,body,db) {
 
     return new Promise((resolve, reject) => {
         fetch(url, option).then(data => data.json()).then(resp => {
+
             if(deal){
                 deal(resp).then(resolve,reject)
+                return
+            }
+
+            if(defaultdeal){
+                defaultdeal(resp).then(resolve,reject)
                 return
             }
 
