@@ -48,14 +48,14 @@ DBF.User.getUserList().then(data=>{
 }
 ```
 
->自定义 `DBF.deal`
+>自定义 `DBF.deal`(1.2可用)
 
 ```
 DBF.deal = resp=>{
 
     return new Promise((resolve,reject)=>{
         //以下自定义 成功resolve,失败reject
-        
+
         const {success,data,...err} = resp
         if (success) {
             resolve(data)
@@ -65,5 +65,13 @@ DBF.deal = resp=>{
             })
         }
     })
+}
+```
+>自定义 `headers`(1.2可用)
+
+```
+DBF.headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json"
 }
 ```

@@ -1,6 +1,6 @@
 {
   "name": "dbfac",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "dbfactory",
   "main": "index.js",
   "directories": {
@@ -16,7 +16,7 @@
     "babel-preset-stage-0": "^6.24.1"
 },
   "scripts": {
-    "test": "parcel test/index.html"
+    "test": "parcel test/index.html --open"
   },
   "repository": {
     "type": "git",

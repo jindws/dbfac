@@ -7,11 +7,17 @@ DBF.deal = resp=>{
         if (success) {
             resolve(data)
         } else {
+            alert(0)
             reject({
               success,data,...err
             })
         }
     })
+}
+
+DBF.headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json"
 }
 
 

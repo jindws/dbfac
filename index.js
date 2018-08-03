@@ -17,21 +17,24 @@ export default new class {
 
 function Request(config,body,db) {
     const {defaultdeal} = db
-    let {url,method = '',deal} = config;
+    let {url,method = ''} = config;
+
+    const {deal,headers = {
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+    }} = db
+
     const option = {
       credentials: 'same-origin',
     };
 
     if(method.toUpperCase() === 'POST'){
       Object.assign(option, {
-          headers: {
-              "Accept": "application/json",
-              "Content-Type": "application/json"
-          },
+          headers,
           method: 'post',
           body: JSON.stringify(body)
       })
-    }else{
+  }else{
       url += `?${os(body)}`
     }
 
