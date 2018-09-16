@@ -10,13 +10,8 @@
     "object-param": "^1.0.2",
     "whatwg-fetch": "^2.0.4"
   },
-  "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.4",
-    "babel-preset-stage-0": "^6.24.1"
-},
   "scripts": {
-    "test": "parcel test/index.html --open"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",

@@ -1,5 +1,7 @@
-import DBF from '../index.js'
-// import DBF from 'dbfac'
+// import DBF from '../index.js'
+const DBF = require('..')
+
+const assert = require('assert')
 
 DBF.deal = resp=>{
     const {success,data,...err} = resp
@@ -29,7 +31,16 @@ DBF.create('YongHu', {
     },
 });
 
-export default DBF
+// export default DBF
 
 //use
-DBF.YongHu.getUserList().then(data=>console.log(222,data))
+// DBF.YongHu.getUserList().then(data=>console.log(222,data))
+
+
+describe('/test', ()=> {
+    it('should return true', async()=> {
+        DBF.YongHu.getUserList().then(data=>{
+            assert.ok(true)
+        })
+    });
+});

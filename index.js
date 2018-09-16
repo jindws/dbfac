@@ -1,7 +1,7 @@
-import os from 'object-param'
-import 'whatwg-fetch'
+const os = require('object-param')
+require('whatwg-fetch')
 
-export default new class {
+module.exports = new class {
     create(name, methods) {
         this.DB(name,methods);
     }
