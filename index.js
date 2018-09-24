@@ -1,5 +1,8 @@
 const os = require('object-param')
 require('whatwg-fetch')
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
 
 module.exports = new class {
     create(name, methods) {
@@ -51,13 +54,19 @@ function Request(config,body,db) {
                 return
             }
 
-            const {success,data,...err} = resp
+            // const {success,data,...err} = resp
+            const {
+              success,
+              data
+            } = resp,
+                  err = _objectWithoutProperties(resp, ["success", "data"]);
             if (success) {
                 resolve(data)
             } else {
-                reject({
-                  success,data,...err
-                })
+                reject(_objectSpread({
+                  success,
+                  data
+                }, err));
             }
         }).catch(()=>reject({
           errorMsg:'请求失败',

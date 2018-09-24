@@ -1,5 +1,6 @@
-// import DBF from '../index.js'
-const DBF = require('..')
+const DBF = require('../index.js')
+
+console.log(DBF)
 
 const assert = require('assert')
 
