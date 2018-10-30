@@ -9,7 +9,7 @@
     DBF.create('User', {
         getUserList:{
             url       :'/api/user/list', //请求地址
-            method    :'POST',          //请求方法,默认get,只支持get/post
+            method    :'POST',          //请求方法,默认get,不限制类型
         },
         delete:{
             url       :'/api/user/delete',
