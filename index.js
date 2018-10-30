@@ -28,18 +28,24 @@ function Request(config,body,db) {
         "Content-Type": "application/json"
     }} = db
 
-    const option = {
+    let option = {
       credentials: 'same-origin',
     };
 
-    if(method.toUpperCase() === 'POST'){
-      Object.assign(option, {
-          headers,
-          method: 'post',
-          body: JSON.stringify(body)
-      })
-  }else{
-      url += `?${os(body)}`
+    if(method.toUpperCase() !== 'GET'){
+          // Object.assign(option, {
+          //     headers,
+          //     method: 'post',
+          //     body: JSON.stringify(body)
+          // })
+          option = {
+              ...option,
+              headers,
+              method: method.toUpperCase(),
+              body: JSON.stringify(body)
+          }
+    }else{
+        url += `?${os(body)}`
     }
 
     return new Promise((resolve, reject) => {
