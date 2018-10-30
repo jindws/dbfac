@@ -33,17 +33,17 @@ function Request(config,body,db) {
     };
 
     if(method.toUpperCase() !== 'GET'){
-          // Object.assign(option, {
-          //     headers,
-          //     method: 'post',
-          //     body: JSON.stringify(body)
-          // })
-          option = {
-              ...option,
+          Object.assign(option, {
               headers,
               method: method.toUpperCase(),
               body: JSON.stringify(body)
-          }
+          })
+          // option = {
+          //     ...option,
+          //     headers,
+          //     method: method.toUpperCase(),
+          //     body: JSON.stringify(body)
+          // }
     }else{
         url += `?${os(body)}`
     }
