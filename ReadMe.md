@@ -12,7 +12,8 @@
             method    :'POST',          //请求方法,默认get,不限制类型
         },
         delete:{
-            url       :'/api/user/delete',
+            url       :'/api/user/delete/:id',
+            method    :'DELETE',
         },
     });
 

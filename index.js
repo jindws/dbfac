@@ -19,6 +19,28 @@ module.exports = new class {
     }
 }
 
+function _replace(url,body){
+    const start = url.indexOf(':')
+    if(start!==-1){
+        let length = url.substring(start).indexOf('/')
+        if(length === -1)length = Infinity
+        const allkey = url.substring(start,start+length)
+        const key = allkey.substring(1)
+
+        url = url.replace(allkey,body[key]||'')
+
+        Reflect.deleteProperty(body,key)
+
+        if(url.includes(':')){
+            return _replace(url,body)
+        }
+    }
+    return {
+        url,
+        body
+    }
+}
+
 function Request(config,body,db) {
     const {defaultdeal} = db
     let {url,method = ''} = config;
@@ -31,6 +53,11 @@ function Request(config,body,db) {
     let option = {
       credentials: 'same-origin',
     };
+
+    const _new = _replace(url,body)
+
+    url = _new.url
+    body = _new.body
 
     if(method.toUpperCase() !== 'GET'){
           Object.assign(option, {
