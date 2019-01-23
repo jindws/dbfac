@@ -31,6 +31,11 @@ DBF.User.getUserList().then(data=>{
     //失败的回调
 })
 ```
+> 请求头设置
+```
+DBF.requestHead = 'http://lcoalhost:7000'
+```
+
 
 > 默认接受的后台数据格式
 

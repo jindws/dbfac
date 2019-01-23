@@ -1,5 +1,5 @@
-const os = require('object-param').default
-require('whatwg-fetch')
+const os = require('object-param').default;
+require('whatwg-fetch');
 
 function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
 function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
@@ -42,13 +42,15 @@ function _replace(url,body){
 }
 
 function Request(config,body,db) {
-    const {defaultdeal} = db
+    const {defaultdeal} = db;
     let {url,method = ''} = config;
 
     const {deal,headers = {
         "Accept": "application/json",
         "Content-Type": "application/json"
-    }} = db
+    },
+        requestHead='',
+    } = db;
 
     let option = {
       credentials: 'same-origin',
@@ -76,7 +78,7 @@ function Request(config,body,db) {
     }
 
     return new Promise((resolve, reject) => {
-        fetch(url, option).then(data => data.json()).then(resp => {
+        fetch(requestHead+url, option).then(data => data.json()).then(resp => {
 
             if(deal){
                 deal(resp).then(resolve,reject)
