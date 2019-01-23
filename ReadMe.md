@@ -31,6 +31,11 @@ DBF.User.getUserList().then(data=>{
     //失败的回调
 })
 ```
+
+> dataType设置，默认json，可用text
+```
+    DBF.dataType = 'text';
+```
 > 请求头设置
 ```
 DBF.requestHead = 'http://lcoalhost:7000'
