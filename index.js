@@ -43,7 +43,7 @@ function _replace(url,body){
 
 function Request(config,body,db) {
     const {defaultdeal} = db;
-    let {url,method = ''} = config;
+    let {url,method = 'get'} = config;
 
     const {deal,headers = {
         "Accept": "application/json",
