@@ -1,29 +1,30 @@
 {
-    "name": "dbfac",
-    "version": "2.0.3",
-    "description": "dbfactory",
-    "main": "index.js",
-    "directories": {
-        "test": "test"
-    },
-    "dependencies": {
-        "object-param": "^1.0.2",
-        "whatwg-fetch": "^2.0.4"
-    },
-    "scripts": {
-        "test": "mocha"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/moiamoia/dbfac.git"
-    },
-    "author": "",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/moiamoia/dbfac/issues"
-    },
-    "homepage": "https://github.com/moiamoia/dbfac#readme",
-    "devDependencies": {
-        "@babel/plugin-proposal-class-properties": "^7.3.0"
-    }
+  "name": "dbfac",
+  "version": "2.1.0",
+  "description": "dbFactory",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "object-param": "^1.0.2",
+    "whatwg-fetch": "^3.6.2"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moiamoia/dbfac.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/moiamoia/dbfac/issues"
+  },
+  "homepage": "https://github.com/moiamoia/dbfac#readme",
+  "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.16.7",
+    "prettier": "^2.5.1"
+  }
 }
